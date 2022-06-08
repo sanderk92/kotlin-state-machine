@@ -7,11 +7,11 @@ data class Document(
     val content: List<Int>,
     val state: DocumentState = New,
 ) {
-    fun updateState() = this.copy(state = calculateState())
+    fun updateState() = this.copy(state = calculateState(this))
 
-    private fun calculateState() =
+    private fun calculateState(document: Document) =
 
-        calculate(this, Document::state) {
+        calculate(document, Document::state) {
 
             New to Open after {
                 it.content.isNotEmpty()
