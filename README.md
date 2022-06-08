@@ -1,7 +1,6 @@
-# WIP
-
 # Kotlin State Machine
-A simple state machine for transitioning a documents state.
+
+A simple state machine for transitioning document state.
 
 ## Instructions
 
