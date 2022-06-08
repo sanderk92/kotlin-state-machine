@@ -7,9 +7,11 @@ data class Document(
     val content: List<Int>,
     val state: DocumentState = New,
 ) {
-    fun updateState(): Document = this.copy(
+    fun updateState() = this.copy(state = calculateState())
 
-        state = calculate(this, Document::state) {
+    private fun calculateState() =
+
+        calculate(this, Document::state) {
 
             New to Open after {
                 it.content.isNotEmpty()
@@ -19,7 +21,6 @@ data class Document(
                 it.content.size >= 5
             }
         }
-    )
 }
 
 enum class DocumentState {
